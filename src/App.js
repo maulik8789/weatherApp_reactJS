@@ -3,7 +3,7 @@ import axios from 'axios'
 import Search from "./components/search/search";
 import Container from './components/container/container';
 import {API_URL, API_KEY} from './getOptions';
-// import Forecast from './components/forecast/forecast'; //TODO
+import Forecast from './components/forecast/forecast';
 
 var unit = 'metric'; //default weather unit
 var cityName='';
@@ -12,7 +12,7 @@ function App() {
   const [data, setData] = useState({})
   const [timeOfDay, setTimeOfDay] = useState('day'); // 'day' or 'night'
   const [weatherCondition, setWeatherCondition] = useState('clear');
-  // const [forecast, setForecast] = useState(null); //TODO 
+  const [forecast, setForecast] = useState(null); //TODO 
 
 
   const onHandleSearchChange = (searchData, units) =>{
@@ -48,8 +48,10 @@ function App() {
       );
       Promise.all([forecastFetch])
         .then(async (response) => {
-          // const forcastResponse = await response[1].json(); //TODO
-          // setForecast({ city: searchData.label, ...forcastResponse }); //TODO
+          console.log('weather data ',response[0].url);
+
+          const forcastResponse = await response[0].json(); //TODO
+          setForecast({ city: searchData.label, ...forcastResponse }); //TODO
         })
         .catch(console.log);
     })
@@ -81,7 +83,7 @@ function App() {
     <div className={`app ${timeOfDay} ${weatherCondition}`}>
       <Search onSearchChange={onHandleSearchChange} unitSet={unit}/>
       <Container data={data} unit={unit} />
-       {/* <Forecast />  TODO */}
+       {forecast && (<Forecast data={forecast} />)}
     </div>
   );
 }

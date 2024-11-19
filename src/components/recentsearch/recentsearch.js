@@ -3,7 +3,7 @@ import React from 'react';
 const RecentSearch = ({ cityList, handleCityClick }) => {
   return (
     <div>
-      <h3>Recent Search:</h3>
+      <h3 className='recentsearch'>Recent Search:</h3>
       <ul className="listCity">
         {cityList.map((city, index) => (
           <li

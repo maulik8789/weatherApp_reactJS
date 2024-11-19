@@ -26,6 +26,12 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); /* Auto adjusts column count based on container size */
   gap: 20px;
+  margin-left: 10px;
+}
+
+.recentsearch{
+  position: relative;
+  margin-left: 10px;
 }
 
 .city-item{
