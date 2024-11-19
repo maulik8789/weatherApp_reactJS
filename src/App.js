@@ -83,7 +83,7 @@ function App() {
     <div className={`app ${timeOfDay} ${weatherCondition}`}>
       <Search onSearchChange={onHandleSearchChange} unitSet={unit}/>
       <Container data={data} unit={unit} />
-       {forecast && (<Forecast data={forecast} />)}
+       {forecast && (<Forecast data={forecast} unitSet={unit} />)}
     </div>
   );
 }
