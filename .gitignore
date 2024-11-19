@@ -23,4 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 
 
-/src/getOptions.js
+# /src/getOptions.js
