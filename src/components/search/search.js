@@ -71,7 +71,7 @@ const Search = ({onSearchChange, unitSet}) => {
                 loadOptions={loadOptions}
             />
             <RecentSearch cityList={cityList} handleCityClick={handleCityClick} />
-            
+            {cityList.length > 0 && (<div>
             <span className='m-unit'>Metric </span>
             <button className={`t-btn ${toggled ? 'toggled' :'' }`} 
                 onClick={()=> {  
@@ -85,6 +85,7 @@ const Search = ({onSearchChange, unitSet}) => {
                     <div className='thumb' />
                     </button>
             <span className='i-unit'>  Imperial</span>
+            </div>)}
         </div>
         
     )
